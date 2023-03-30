@@ -1,6 +1,6 @@
 module github.com/phongthien99/nest-go
 
-go 1.20
+go 1.19
 
 require (
 	github.com/go-playground/locales v0.14.1

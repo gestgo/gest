@@ -20,7 +20,7 @@ func NewApp() *fx.App {
 					return config.GetConfiguration().Http.Port
 				},
 				fx.ResultTags(`name:"httpPort"`))),
-
+		//fx.Provide(exceptions.NewI18nValidationException),
 		echofx.Module(),
 		user.Module(),
 
@@ -33,6 +33,7 @@ func NewApp() *fx.App {
 		fx.Invoke(EnableSwagger),
 		fx.Invoke(EnableLogRequest),
 		fx.Invoke(EnableValidationRequest),
+		//fx.Invoke(EnableI18nErrorHandler),
 		fx.Invoke(func(*echo.Echo) {}),
 	)
 

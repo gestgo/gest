@@ -1,11 +1,7 @@
 package user
 
 import (
-	"fmt"
-	"github.com/go-playground/validator/v10"
 	"github.com/labstack/echo/v4"
-	"github.com/phongthien99/nest-go/packages/common/exceptions"
-	validateC "github.com/phongthien99/nest-go/packages/common/validate"
 	"github.com/phongthien99/nest-go/packages/core/controller"
 	"go.uber.org/fx"
 	"net/http"
@@ -49,16 +45,8 @@ func (b *Controller) Check() {
 			return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 		}
 		if err := c.Validate(u); err != nil {
-			var eb = []string{}
-			//enLocale := en.New()
-			//uniTrans := ut.New(enLocale, enLocale)
-			//trans, _ := uniTrans.GetTranslator("en")
-			for _, err := range err.(validator.ValidationErrors) {
-				// Use custom error message
-				fmt.Println(err.Translate(validateC.Trans))
-			}
-			return c.JSON(404, exceptions.NewHTTPException(400, eb, err.Error()))
 			return err
+
 		}
 		return c.JSON(http.StatusOK, u)
 	})
@@ -69,6 +57,7 @@ type User struct {
 	Name  string `json:"name" validate:"required"`
 	Email string `json:"email" validate:"required,email"`
 	Age   int    `json:"age" validate:"required,min=18,max=65"`
+	A     A      `json:"a"`
 }
 type A struct {
 	Name  string `json:"name" validate:"required"`

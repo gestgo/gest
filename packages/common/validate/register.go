@@ -1,7 +1,6 @@
 package validate
 
 import (
-	"github.com/go-playground/locales/en"
 	ut "github.com/go-playground/universal-translator"
 	"github.com/go-playground/validator/v10"
 	en_translations "github.com/go-playground/validator/v10/translations/en"
@@ -11,21 +10,19 @@ const defaultErrMsg = " field did not pass validation"
 
 var Trans ut.Translator
 
-func RegisterEnglish(validate *validator.Validate) {
-	enLocale := en.New()
-	uniTrans := ut.New(enLocale, enLocale)
-	Trans, _ = uniTrans.GetTranslator("en")
+func RegisterTranslations(validate *validator.Validate, trans ut.Translator, builtinMessages map[string]string) {
 	for s, message := range builtinMessages {
-		validate.RegisterTranslation("required", Trans, func(ut ut.Translator) error {
+		validate.RegisterTranslation(s, trans, func(ut ut.Translator) error {
 			return ut.Add(s, message, true)
 		}, func(ut ut.Translator, fe validator.FieldError) string {
-			t, _ := ut.T(s, fe.Field())
+			t, _ := ut.T(s, fe.StructNamespace())
 			return t
 		})
 	}
 
-	en_translations.RegisterDefaultTranslations(validate, Trans)
-
+}
+func RegisterDefaultTranslations(validate *validator.Validate, trans ut.Translator) {
+	en_translations.RegisterDefaultTranslations(validate, trans)
 }
 
 var builtinMessages = map[string]string{

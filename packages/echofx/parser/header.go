@@ -8,18 +8,25 @@ type BindHeaders interface {
 	BindHeaders(c echo.Context, i interface{}) error
 }
 type HeaderParser[T any] struct {
-	name   string
-	binder BindHeaders
+	name     string
+	binder   BindHeaders
+	validate bool
 }
 
 func (b *HeaderParser[T]) Parser(next echo.HandlerFunc) echo.HandlerFunc {
 	return func(c echo.Context) error {
-		payload := new(T)
-		err := b.binder.BindHeaders(c, payload)
+		data := new(T)
+		err := b.binder.BindHeaders(c, data)
 		if err != nil {
-			return c.JSON(400, err)
+			return err
 		}
-		c.Set(b.name, payload)
+		if b.validate {
+			if err = c.Validate(data); err != nil {
+				return err
+			}
+
+		}
+		c.Set(b.name, data)
 
 		err = next(c)
 
@@ -27,9 +34,10 @@ func (b *HeaderParser[T]) Parser(next echo.HandlerFunc) echo.HandlerFunc {
 	}
 }
 
-func NewDefaultHeaderParser[T any](name string) IParser {
+func NewDefaultHeaderParser[T any](name string, validate bool) IParser {
 	return &HeaderParser[T]{
-		name:   name,
-		binder: &echo.DefaultBinder{},
+		name:     name,
+		binder:   &echo.DefaultBinder{},
+		validate: validate,
 	}
 }

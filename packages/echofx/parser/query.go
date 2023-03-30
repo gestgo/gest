@@ -4,19 +4,19 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-type BindBody interface {
-	BindBody(c echo.Context, i interface{}) error
+type BindPathParams interface {
+	BindPathParams(c echo.Context, i interface{}) error
 }
-type BodyParser[T any] struct {
+type PathParams[T any] struct {
 	name     string
 	validate bool
-	binder   BindBody
+	binder   BindPathParams
 }
 
-func (b *BodyParser[T]) Parser(next echo.HandlerFunc) echo.HandlerFunc {
+func (b *PathParams[T]) Parser(next echo.HandlerFunc) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		data := new(T)
-		err := b.binder.BindBody(c, data)
+		err := b.binder.BindPathParams(c, data)
 		if err != nil {
 			return err
 		}
@@ -34,7 +34,7 @@ func (b *BodyParser[T]) Parser(next echo.HandlerFunc) echo.HandlerFunc {
 	}
 }
 
-func NewDefaultBodyParser[T any](name string, validate bool) IParser {
+func NewDefaultPathParamsParser[T any](name string, validate bool) IParser {
 	return &BodyParser[T]{
 		name:     name,
 		binder:   &echo.DefaultBinder{},
