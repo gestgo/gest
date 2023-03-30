@@ -1,6 +1,8 @@
 package main
 
-import "go-echo-base/src/module"
+import (
+	"github.com/phongthien99/nest-go/src/module"
+)
 
 func main() {
 	app := module.NewApp()
