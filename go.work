@@ -1,0 +1,17 @@
+go 1.20
+
+use (
+	package/core
+	package/common/config
+    package/technique/mongo
+    package/technique/logfx
+    package/technique/echofx
+    template/module-echo
+    template/project-echo
+	.
+
+
+)
+
+replace github.com/gestgo/gest/package/core => ./package/core
+replace github.com/gestgo/gest/package/common/config => ./package/common/config
