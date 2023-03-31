@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"github.com/gestgo/gest/packages/core/pipe"
 	"github.com/labstack/echo/v4"
 )
 
@@ -11,6 +12,7 @@ type HeaderParser[T any] struct {
 	name     string
 	binder   BindHeaders
 	validate bool
+	pipes    []pipe.IPipe
 }
 
 func (b *HeaderParser[T]) Parser(next echo.HandlerFunc) echo.HandlerFunc {
@@ -18,7 +20,14 @@ func (b *HeaderParser[T]) Parser(next echo.HandlerFunc) echo.HandlerFunc {
 		data := new(T)
 		err := b.binder.BindHeaders(c, data)
 		if err != nil {
-			return err
+			return c.JSON(400, err)
+		}
+
+		for _, pipe := range b.pipes {
+			if err = pipe.Bind(data); err != nil {
+				return err
+			}
+
 		}
 		if b.validate {
 			if err = c.Validate(data); err != nil {
@@ -34,10 +43,11 @@ func (b *HeaderParser[T]) Parser(next echo.HandlerFunc) echo.HandlerFunc {
 	}
 }
 
-func NewDefaultHeaderParser[T any](name string, validate bool) IParser {
+func NewDefaultHeaderParser[T any](name string, validate bool, p ...pipe.IPipe) IParser {
 	return &HeaderParser[T]{
 		name:     name,
 		binder:   &echo.DefaultBinder{},
 		validate: validate,
+		pipes:    p,
 	}
 }

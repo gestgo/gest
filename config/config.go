@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/phongthien99/nest-go/packages/common/config"
+	"github.com/gestgo/gest/packages/common/config"
 	"log"
 )
 

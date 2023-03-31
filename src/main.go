@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/phongthien99/nest-go/src/module"
+	"github.com/gestgo/gest/src/module"
 )
 
 func main() {

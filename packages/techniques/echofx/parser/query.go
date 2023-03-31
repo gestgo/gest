@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"github.com/gestgo/gest/packages/core/pipe"
 	"github.com/labstack/echo/v4"
 )
 
@@ -11,6 +12,7 @@ type QueryParams[T any] struct {
 	name     string
 	validate bool
 	binder   BindQueryParams
+	pipes    []pipe.IPipe
 }
 
 func (b *QueryParams[T]) Parser(next echo.HandlerFunc) echo.HandlerFunc {
@@ -18,10 +20,17 @@ func (b *QueryParams[T]) Parser(next echo.HandlerFunc) echo.HandlerFunc {
 		data := new(T)
 		err := b.binder.BindQueryParams(c, data)
 		if err != nil {
-			return err
+			return c.JSON(400, err)
 		}
+
 		if b.validate {
 			if err = c.Validate(data); err != nil {
+				return err
+			}
+
+		}
+		for _, pipe := range b.pipes {
+			if err = pipe.Bind(data); err != nil {
 				return err
 			}
 
@@ -34,10 +43,11 @@ func (b *QueryParams[T]) Parser(next echo.HandlerFunc) echo.HandlerFunc {
 	}
 }
 
-func NewDefaultQueryParamsParser[T any](name string, validate bool) IParser {
+func NewQueryParser[T any](name string, validate bool, p ...pipe.IPipe) IParser {
 	return &QueryParams[T]{
 		name:     name,
 		binder:   &echo.DefaultBinder{},
 		validate: validate,
+		pipes:    p,
 	}
 }

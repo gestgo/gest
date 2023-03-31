@@ -2,11 +2,11 @@ package exceptions
 
 import (
 	"fmt"
+	"github.com/gestgo/gest/packages/common/exceptions"
+	validateC "github.com/gestgo/gest/packages/techniques/validate"
 	ut "github.com/go-playground/universal-translator"
 	"github.com/go-playground/validator/v10"
 	"github.com/labstack/echo/v4"
-	"github.com/phongthien99/nest-go/packages/common/exceptions"
-	validateC "github.com/phongthien99/nest-go/packages/common/validate"
 	"net/http"
 )
 
@@ -37,7 +37,8 @@ func (i *I18nCustomException) ErrorHandler(err error, c echo.Context) {
 	}{})
 }
 
-func NewI18nValidationException(translators map[string]ut.Translator) IEchoCustomException {
+func NewI18nValidationException() IEchoCustomException {
+	var translators map[string]ut.Translator
 	return &I18nCustomException{
 		translators: translators,
 	}

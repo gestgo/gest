@@ -1,11 +1,13 @@
 package module
 
 import (
+	"github.com/gestgo/gest/config"
+	"github.com/gestgo/gest/packages/core/controller"
+	"github.com/gestgo/gest/packages/techniques/echofx"
+	"github.com/gestgo/gest/packages/techniques/echofx/exceptions"
+	"github.com/gestgo/gest/packages/techniques/logfx"
+	"github.com/gestgo/gest/src/module/user"
 	"github.com/labstack/echo/v4"
-	"github.com/phongthien99/nest-go/config"
-	"github.com/phongthien99/nest-go/packages/core/controller"
-	"github.com/phongthien99/nest-go/packages/echofx"
-	"github.com/phongthien99/nest-go/src/module/user"
 	"go.uber.org/fx"
 )
 
@@ -20,9 +22,10 @@ func NewApp() *fx.App {
 					return config.GetConfiguration().Http.Port
 				},
 				fx.ResultTags(`name:"httpPort"`))),
-		//fx.Provide(exceptions.NewI18nValidationException),
+		fx.Provide(exceptions.NewI18nValidationException),
 		echofx.Module(),
 		user.Module(),
+		logfx.Module(),
 
 		fx.Invoke(
 			fx.Annotate(
@@ -33,7 +36,7 @@ func NewApp() *fx.App {
 		fx.Invoke(EnableSwagger),
 		fx.Invoke(EnableLogRequest),
 		fx.Invoke(EnableValidationRequest),
-		//fx.Invoke(EnableI18nErrorHandler),
+		fx.Invoke(EnableI18nErrorHandler),
 		fx.Invoke(func(*echo.Echo) {}),
 	)
 

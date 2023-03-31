@@ -1,12 +1,12 @@
 package module
 
 import (
+	"github.com/gestgo/gest/config"
+	docs "github.com/gestgo/gest/docs"
+	"github.com/gestgo/gest/packages/techniques/echofx/exceptions"
+	"github.com/gestgo/gest/packages/techniques/validate"
 	validator10 "github.com/go-playground/validator/v10"
 	"github.com/labstack/echo/v4"
-	"github.com/phongthien99/nest-go/config"
-	docs "github.com/phongthien99/nest-go/docs"
-	"github.com/phongthien99/nest-go/packages/common/validate"
-	"github.com/phongthien99/nest-go/packages/echofx/exceptions"
 	echoSwagger "github.com/swaggo/echo-swagger"
 )
 
