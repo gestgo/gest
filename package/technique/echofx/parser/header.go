@@ -1,7 +1,7 @@
 package parser
 
 import (
-	"github.com/gestgo/main/packages/core/pipe"
+	"github.com/gestgo/gest/package/core/pipe"
 	"github.com/labstack/echo/v4"
 )
 

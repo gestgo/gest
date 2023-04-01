@@ -8,10 +8,9 @@ use (
     package/technique/echofx
     template/module-echo
     template/project-echo
+	example
 	.
+	package/technique/validate
 
 
 )
-
-replace github.com/gestgo/gest/package/core => ./package/core
-replace github.com/gestgo/gest/package/common/config => ./package/common/config

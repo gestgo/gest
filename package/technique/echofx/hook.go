@@ -10,7 +10,7 @@ import (
 type Params struct {
 	fx.In
 	PlatformEcho *echo.Echo `name:"platformEcho"`
-	HttpPort     int        `name:"httpPort"`
+	HttpPort     int        `name:"platformE choPort"`
 }
 
 func RegisterEchoHooks(
