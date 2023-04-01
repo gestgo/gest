@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/gestgo/gest/packages/common/config"
+	"github.com/gestgo/gest/package/common/config"
 	"log"
 )
 

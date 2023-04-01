@@ -1,12 +1,12 @@
 package module
 
 import (
-	"github.com/gestgo/gest/core/router"
-	"github.com/gestgo/main/app-example/config"
-	"github.com/gestgo/main/app/src/module/user"
-	"github.com/gestgo/main/packages/techniques/echofx"
-	"github.com/gestgo/main/packages/techniques/echofx/exceptions"
-	"github.com/gestgo/main/packages/techniques/logfx"
+	"github.com/gestgo/gest/example/config"
+	"github.com/gestgo/gest/example/src/module/user"
+	"github.com/gestgo/gest/package/core/router"
+	"github.com/gestgo/gest/package/technique/echofx"
+	"github.com/gestgo/gest/package/technique/echofx/exceptions"
+	"github.com/gestgo/gest/package/technique/logfx"
 	"github.com/labstack/echo/v4"
 	"go.uber.org/fx"
 )

@@ -1,10 +1,10 @@
 package module
 
 import (
-	"github.com/gestgo/main/app-example/config"
-	"github.com/gestgo/main/app-example/docs"
-	"github.com/gestgo/main/packages/techniques/echofx/exceptions"
-	"github.com/gestgo/main/packages/techniques/validate"
+	"github.com/gestgo/gest/example/config"
+	"github.com/gestgo/gest/example/docs"
+	"github.com/gestgo/gest/package/technique/echofx/exceptions"
+	"github.com/gestgo/gest/package/technique/validate"
 	validator10 "github.com/go-playground/validator/v10"
 	"github.com/labstack/echo/v4"
 	echoSwagger "github.com/swaggo/echo-swagger"

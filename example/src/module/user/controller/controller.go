@@ -1,8 +1,9 @@
 package controller
 
 import (
-	dto2 "github.com/gestgo/main/app/src/module/user/dto"
-	parser2 "github.com/gestgo/packages/techniques/echofx/parser"
+	dto2 "github.com/gestgo/gest/example/src/module/user/dto"
+	"github.com/gestgo/gest/package/core/router"
+	parser2 "github.com/gestgo/gest/package/technique/echofx/parser"
 	"github.com/labstack/echo/v4"
 	"go.uber.org/fx"
 	"go.uber.org/zap"
@@ -36,13 +37,13 @@ func NewController(params Params) IUserController {
 
 func NewRouter(params Params) Result {
 	c := NewController(params)
-	return Result{Controller: router.NewBaseController[IUserController, IUserController](c)}
+	return Result{Controller: router.NewBaseRouter[IUserController, IUserController](c)}
 
 }
 
 type Result struct {
 	fx.Out
-	Controller router.IController `group:"controllers""`
+	Controller router.IRouter `group:"controllers""`
 }
 
 func (b *Controller) Create() {

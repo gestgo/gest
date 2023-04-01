@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/gestgo/main/app/src/module"
+	"github.com/gestgo/gest/example/src/module"
 )
 
 func main() {
