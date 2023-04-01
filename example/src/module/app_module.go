@@ -4,8 +4,8 @@ import (
 	"github.com/gestgo/gest/example/config"
 	"github.com/gestgo/gest/example/src/module/user"
 	"github.com/gestgo/gest/package/core/router"
-	"github.com/gestgo/gest/package/technique/echofx"
-	"github.com/gestgo/gest/package/technique/echofx/exceptions"
+	"github.com/gestgo/gest/package/extension/echofx"
+	"github.com/gestgo/gest/package/extension/echofx/exceptions"
 	"github.com/gestgo/gest/package/technique/logfx"
 	"github.com/labstack/echo/v4"
 	"go.uber.org/fx"
@@ -26,7 +26,6 @@ func NewApp() *fx.App {
 		echofx.Module(),
 		user.Module(),
 		logfx.Module(),
-
 		fx.Invoke(
 			fx.Annotate(
 				router.InitRouter,
@@ -35,8 +34,8 @@ func NewApp() *fx.App {
 		fx.Provide(SetGlobalPrefix),
 		fx.Invoke(EnableSwagger),
 		fx.Invoke(EnableLogRequest),
-		fx.Invoke(EnableValidationRequest),
-		fx.Invoke(EnableI18nErrorHandler),
+		//fx.Invoke(EnableValidationRequest),
+		fx.Invoke(EnableErrorHandler),
 		fx.Invoke(func(*echo.Echo) {}),
 	)
 

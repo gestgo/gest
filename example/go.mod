@@ -5,10 +5,8 @@ go 1.19
 require (
 	github.com/gestgo/gest/package/common/config v0.0.0-20230401043820-44eaa851a87e
 	github.com/gestgo/gest/package/core v0.0.0-20230331135242-1bc85665f5a0
-	github.com/gestgo/gest/package/extension/echofx v0.0.0-20230401073142-27733324c8e0
-	github.com/gestgo/gest/package/extention/echofx v0.0.0-20230401072027-9d5fb4ea3cdd
-	github.com/gestgo/gest/package/technique/echofx v0.0.0-20230401060758-51afb4be69bd
-	github.com/gestgo/gest/package/technique/logfx v0.0.0-20230401043820-44eaa851a87e
+	github.com/gestgo/gest/package/extension/echofx v0.0.0-20230401110000-7ced353e9e15
+	github.com/gestgo/gest/package/technique/logfx v0.0.0-20230401060758-51afb4be69bd
 	github.com/gestgo/gest/package/technique/validate v0.0.0-20230401060758-51afb4be69bd
 	github.com/go-playground/locales v0.14.1
 	github.com/go-playground/universal-translator v0.18.1
@@ -29,6 +27,7 @@ require (
 	github.com/go-openapi/jsonreference v0.19.6 // indirect
 	github.com/go-openapi/spec v0.20.4 // indirect
 	github.com/go-openapi/swag v0.19.15 // indirect
+	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/labstack/gommon v0.4.0 // indirect
@@ -55,6 +54,7 @@ require (
 	golang.org/x/net v0.8.0 // indirect
 	golang.org/x/sys v0.6.0 // indirect
 	golang.org/x/text v0.8.0 // indirect
+	golang.org/x/time v0.3.0 // indirect
 	golang.org/x/tools v0.7.0 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect

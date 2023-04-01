@@ -10,4 +10,4 @@ run: fmt ## Run a controller from your host
 swag: fmt ## Run a controller from your host
 	@ ./cmd/swagger init --dir ./src/
 gen_module:
-	@ cookiecutter   /home/phongthien/Desktop/start-up/gest/template/module  name=$(module_name) base_path=$(base_path) --no-input --output-dir ./src/module
+	@ cookiecutter   /home/phongthien/Desktop/start-up/gest/template/module  name=$(name) base_path=$(base_path) --no-input --output-dir ./src/module/test
