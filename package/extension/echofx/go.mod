@@ -1,14 +1,16 @@
-module github.com/gestgo/gest/package/technique/echofx
+module github.com/gestgo/gest/package/extension/echofx
 
 go 1.19
 
 require (
 	github.com/gestgo/gest/package/core v0.0.0-20230331135242-1bc85665f5a0
+	github.com/go-playground/universal-translator v0.18.1
 	github.com/labstack/echo/v4 v4.10.2
 	go.uber.org/fx v1.19.2
 )
 
 require (
+	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/labstack/gommon v0.4.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.17 // indirect

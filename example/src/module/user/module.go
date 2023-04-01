@@ -1,14 +1,15 @@
 package user
 
 import (
-	"github.com/gestgo/main/app/src/module/user/controller"
+	"github.com/gestgo/gest/example/src/module/user/service"
 	"go.uber.org/fx"
 )
 
 func Module() fx.Option {
 	return fx.Module("user",
 		fx.Provide(
-			controller.NewRouter,
+			//controller.NewRouter,
+			service.NewUserService,
 		),
 	)
 }

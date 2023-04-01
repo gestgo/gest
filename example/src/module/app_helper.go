@@ -3,7 +3,7 @@ package module
 import (
 	"github.com/gestgo/gest/example/config"
 	"github.com/gestgo/gest/example/docs"
-	"github.com/gestgo/gest/package/technique/echofx/exceptions"
+	"github.com/gestgo/gest/package/extention/echofx/exceptions"
 	"github.com/gestgo/gest/package/technique/validate"
 	validator10 "github.com/go-playground/validator/v10"
 	"github.com/labstack/echo/v4"
@@ -11,10 +11,7 @@ import (
 )
 
 func EnableValidationRequest(e *echo.Echo) {
-	//
 	v := validator10.New()
-	//validate.RegisterEnglish(v)
-	//
 	customValidator := validate.NewNestGoValidator(v)
 	e.Validator = customValidator
 

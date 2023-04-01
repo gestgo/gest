@@ -1,0 +1,5 @@
+{
+  "name": "name",
+  "base_path": "base_path",
+  "name_camelcase": "{{ cookiecutter.name|title|replace(' ', '')|replace('-', '') }}"
+}

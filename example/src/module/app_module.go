@@ -21,7 +21,7 @@ func NewApp() *fx.App {
 				func() int {
 					return config.GetConfiguration().Http.Port
 				},
-				fx.ResultTags(`name:"httpPort"`))),
+				fx.ResultTags(`name:"platformEchoPort"`))),
 		fx.Provide(exceptions.NewI18nValidationException),
 		echofx.Module(),
 		user.Module(),

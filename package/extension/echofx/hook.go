@@ -9,8 +9,8 @@ import (
 
 type Params struct {
 	fx.In
-	PlatformEcho *echo.Echo `name:"platformEcho"`
-	HttpPort     int        `name:"platformE choPort"`
+	PlatformEcho     *echo.Echo `name:"platformEcho"`
+	PlatformEchoPort int        `name:"platformEchoPort"`
 }
 
 func RegisterEchoHooks(
@@ -22,7 +22,7 @@ func RegisterEchoHooks(
 		fx.Hook{
 			OnStart: func(context.Context) error {
 
-				go platformEcho.Start(fmt.Sprintf(":%d", params.HttpPort))
+				go platformEcho.Start(fmt.Sprintf(":%d", params.PlatformEchoPort))
 				return nil
 			},
 			OnStop: func(ctx context.Context) error {

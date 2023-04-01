@@ -1,9 +1,9 @@
 package controller
 
 import (
-	dto2 "github.com/gestgo/gest/example/src/module/user/dto"
+	"github.com/gestgo/gest/example/src/module/user/dto"
 	"github.com/gestgo/gest/package/core/router"
-	parser2 "github.com/gestgo/gest/package/technique/echofx/parser"
+	"github.com/gestgo/gest/package/extension/echofx/parser"
 	"github.com/labstack/echo/v4"
 	"go.uber.org/fx"
 	"go.uber.org/zap"
@@ -43,24 +43,24 @@ func NewRouter(params Params) Result {
 
 type Result struct {
 	fx.Out
-	Controller router.IRouter `group:"controllers""`
+	Controller router.IRouter `group:"controllers"`
 }
 
 func (b *Controller) Create() {
 
 	b.router.POST("/users", func(c echo.Context) error {
-		body := c.Get("body").(*dto2.CreateUser)
+		body := c.Get("body").(*dto.CreateUser)
 		return c.JSON(http.StatusOK, body)
-	}, parser2.NewBodyParser[dto2.CreateUser]("body", true).Parser)
+	}, parser.NewBodyParser[dto.CreateUser]("body", true).Parser)
 
 }
 
 func (b *Controller) FindAll() {
 	b.router.GET("/users", func(c echo.Context) error {
-		param := c.Get("query").(*dto2.GetListUserQuery)
+		param := c.Get("query").(*dto.GetListUserQuery)
 		b.logger.Info(param)
 		return c.JSON(http.StatusOK, param)
-	}, parser2.NewQueryParser[dto2.GetListUserQuery]("query", true).Parser)
+	}, parser.NewQueryParser[dto.GetListUserQuery]("query", true).Parser)
 
 }
 
@@ -68,23 +68,23 @@ func (b *Controller) FindOne() {
 
 	b.router.GET("/users/:id", func(c echo.Context) error {
 
-		u := c.Get("param").(*dto2.GetUserById)
+		u := c.Get("param").(*dto.GetUserById)
 		return c.JSON(http.StatusOK, u)
-	}, parser2.NewParamsParser[dto2.GetUserById]("param", true).Parser)
+	}, parser.NewParamsParser[dto.GetUserById]("param", true).Parser)
 
 }
 func (b *Controller) Update() {
 
 	b.router.PUT("/users/:id", func(c echo.Context) error {
 
-		u := c.Get("request").(*dto2.UpdateUser)
+		u := c.Get("request").(*dto.UpdateUser)
 		return c.JSON(http.StatusOK, u)
-	}, parser2.NewRequestParser[dto2.UpdateUser]("request", true).Parser)
+	}, parser.NewRequestParser[dto.UpdateUser]("request", true).Parser)
 }
 
 func (b *Controller) Delete() {
 	b.router.DELETE("/users/:id", func(c echo.Context) error {
-		u := c.Get("request").(*dto2.DeleteUserById)
+		u := c.Get("request").(*dto.DeleteUserById)
 		return c.JSON(http.StatusOK, u)
-	}, parser2.NewRequestParser[dto2.DeleteUserById]("request", true).Parser)
+	}, parser.NewRequestParser[dto.DeleteUserById]("request", true).Parser)
 }
