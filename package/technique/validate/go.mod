@@ -1,4 +1,4 @@
-module github.com/gestgo/gest/packages/techniques/validate
+module github.com/gestgo/gest/package/technique/validate
 
 go 1.19
 
