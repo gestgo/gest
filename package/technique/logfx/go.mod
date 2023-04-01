@@ -1,3 +1,3 @@
-module github.com/gestgo/gest/logfx
+module github.com/gestgo/gest/package/technique/logfx
 
-go 1.20
+go 1.19
