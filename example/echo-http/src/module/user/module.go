@@ -1,15 +1,15 @@
 package user
 
 import (
-	"echo-http/src/module/user/service"
+	"echo-http/src/module/user/controller"
 	"go.uber.org/fx"
 )
 
 func Module() fx.Option {
 	return fx.Module("user",
 		fx.Provide(
-			//controller.NewRouter,
-			service.NewUserService,
+			controller.NewUserRouter,
+			//service.NewUserService,
 		),
 	)
 }

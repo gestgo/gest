@@ -4,8 +4,8 @@ go 1.19
 
 require (
 	github.com/gestgo/gest/package/common/config v0.0.0-20230401043820-44eaa851a87e
-	github.com/gestgo/gest/package/core v0.0.0-20230331135242-1bc85665f5a0
-	github.com/gestgo/gest/package/extension/echofx v0.0.0-20230401110000-7ced353e9e15
+	github.com/gestgo/gest/package/core v0.0.0-20230402132721-2e0d10f02cd8
+	github.com/gestgo/gest/package/extension/echofx v0.0.0-20230402132721-2e0d10f02cd8
 	github.com/gestgo/gest/package/technique/logfx v0.0.0-20230401060758-51afb4be69bd
 	github.com/gestgo/gest/package/technique/validate v0.0.0-20230401060758-51afb4be69bd
 	github.com/go-playground/locales v0.14.1
@@ -15,7 +15,7 @@ require (
 	github.com/swaggo/echo-swagger v1.4.0
 	github.com/swaggo/swag v1.8.12
 	go.uber.org/fx v1.19.2
-	go.uber.org/zap v1.23.0
+	go.uber.org/zap v1.24.0
 )
 
 require (
@@ -35,7 +35,7 @@ require (
 	github.com/magiconair/properties v1.8.7 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
-	github.com/mattn/go-isatty v0.0.17 // indirect
+	github.com/mattn/go-isatty v0.0.18 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.6 // indirect
 	github.com/spf13/afero v1.9.3 // indirect
@@ -47,9 +47,9 @@ require (
 	github.com/swaggo/files/v2 v2.0.0 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.2 // indirect
-	go.uber.org/atomic v1.9.0 // indirect
+	go.uber.org/atomic v1.10.0 // indirect
 	go.uber.org/dig v1.16.1 // indirect
-	go.uber.org/multierr v1.8.0 // indirect
+	go.uber.org/multierr v1.11.0 // indirect
 	golang.org/x/crypto v0.7.0 // indirect
 	golang.org/x/net v0.8.0 // indirect
 	golang.org/x/sys v0.6.0 // indirect
