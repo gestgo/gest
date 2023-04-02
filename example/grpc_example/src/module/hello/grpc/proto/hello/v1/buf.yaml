@@ -1,0 +1,11 @@
+version: v1beta1
+name: buf.build/gestgo/helloworld
+deps:
+  - buf.build/beta/googleapis
+build:
+  roots:
+    - ./proto
+lint:
+  except:
+    - PACKAGE_DIRECTORY_MATCH
+    - PACKAGE_SAME_DIRECTORY

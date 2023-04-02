@@ -1,0 +1,20 @@
+info:
+  contact: {}
+paths:
+  /checks:
+    get:
+      consumes:
+      - application/json
+      description: Find All Alert
+      parameters:
+      - description: ' query builder'
+        in: query
+        name: q
+        type: string
+      produces:
+      - application/json
+      responses: {}
+      summary: FindAll
+      tags:
+      - Alert
+swagger: "2.0"

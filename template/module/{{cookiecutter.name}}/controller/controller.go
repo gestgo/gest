@@ -35,7 +35,7 @@ func NewController(params Params) I{{cookiecutter.name_camelcase}}Controller {
 	}
 }
 
-func New{{cookiecutter.name}}Router(params Params) Result {
+func New{{cookiecutter.name_camelcase}}Router(params Params) Result {
 	c := NewController(params)
 	return Result{Controller: router.NewBaseRouter[I{{cookiecutter.name_camelcase}}Controller, I{{cookiecutter.name_camelcase}}Controller](c)}
 
