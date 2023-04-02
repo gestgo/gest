@@ -1,4 +1,7 @@
-package {{cookiecutter.name}}
+package
+
+import "go.uber.org/fx"
+{{cookiecutter.name}}
 
 import (
 	"go.uber.org/fx"
@@ -9,8 +12,8 @@ import (
 func Module() fx.Option {
 	return fx.Module("{{cookiecutter.name}}",
 		fx.Provide(
-			controller.New{{cookiecutter.name}}Router,
-			service.New{{cookiecutter.name}}Service,
+			controller.New{{cookiecutter.name_camelcase}}Router,
+			service.New{{cookiecutter.name_camelcase}}Service,
 		),
 	)
 }
