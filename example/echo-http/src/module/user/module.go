@@ -1,7 +1,7 @@
 package user
 
 import (
-	"github.com/gestgo/gest/example/echo-http/src/module/user/service"
+	"echo-http/src/module/user/service"
 	"go.uber.org/fx"
 )
 

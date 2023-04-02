@@ -37,11 +37,14 @@ func RegisterGRPCHooks(
 ) *grpc.Server {
 	grpcSever := params.GrpcServer
 	registerServers := params.RegisterServers
-	InitGrpcController(grpcSever, registerServers)
+
 	lifecycle.Append(
 		fx.Hook{
 			OnStart: func(context.Context) error {
 				go func() {
+					
+					InitGrpcController(grpcSever, registerServers)
+
 					lis, err := net.Listen("tcp", fmt.Sprintf(":%d", params.GrpcPort))
 					if err != nil {
 						log.Fatalf("failed to listen: %v", err)

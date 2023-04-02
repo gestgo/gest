@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/gestgo/gest/example/echo-http/src/module"
+	"echo-http/src/module"
 )
 
 func main() {

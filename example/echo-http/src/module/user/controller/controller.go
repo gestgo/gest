@@ -28,16 +28,9 @@ type Controller struct {
 	logger *zap.SugaredLogger
 }
 
-func NewController(params Params) IUserController {
-	return &Controller{
-		router: params.Router,
-		logger: params.Logger,
-	}
-}
-
 func NewRouter(params Params) Result {
 	c := NewController(params)
-	return Result{Controller: router.NewBaseRouter[IUserController, IUserController](c)}
+	return Result{Controller: router.NewBaseRouter[IUserController, IUserController](&Controller{})}
 
 }
 
