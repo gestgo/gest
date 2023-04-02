@@ -5,8 +5,8 @@ import (
 	"go.uber.org/fx"
 	"go.uber.org/zap"
 	"net/http"
-	"{{cookiecutter.project_name}}/core/router"
-	"{{cookiecutter.project_name}}/extension/echofx/parser"
+	"github.com/gestgo/gest/package/core/router"
+	"github.com/gestgo/gest/package/extension/echofx/parser"
 	"{{cookiecutter.project_name}}/src/module/user/dto"
 )
 

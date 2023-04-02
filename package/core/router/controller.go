@@ -8,19 +8,18 @@ type IRouter interface {
 	InitRouter()
 }
 
-type Router[T any, I any] struct {
+type Router[I any] struct {
 	controller I
 }
 
-func (b *Router[T, I]) InitRouter() {
-	t := reflect.TypeOf((*T)(nil)).Elem()
+func (b *Router[I]) InitRouter() {
+	t := reflect.TypeOf((*I)(nil)).Elem()
 	for i := 0; i < t.NumMethod(); i++ {
-		//log.Printf("%s.%s", t.Name(), t.Method(i).Name)
 		reflect.ValueOf(b.controller).MethodByName(t.Method(i).Name).Call([]reflect.Value{})
 	}
 }
-func NewBaseRouter[T any, I any](controller I) *Router[T, I] {
-	return &Router[T, I]{
+func NewBaseRouter[I any](controller I) *Router[I] {
+	return &Router[I]{
 		controller: controller,
 	}
 }

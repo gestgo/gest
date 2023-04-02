@@ -2,9 +2,3 @@ http:
   port: 8082
   host: 0.0.0.0
   base_path: ""
-mongo:
-  uri: "mongodb+srv://admin:ptdq1308@cluster0.encht.mongodb.net/trade_manager_prod?retryWrites=true&w=majority"
-  database: "trade_manager_prod"
-redis:
-  uri: "localhost:6379"
-cron_job_collection : "cronJobs"
