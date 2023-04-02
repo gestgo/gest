@@ -3,7 +3,7 @@ package module
 import (
 	"echo-http/config"
 	"echo-http/docs"
-	"github.com/gestgo/gest/package/extension/echofx/exceptions"
+	"github.com/gestgo/gest/package/extension/echofx/exception"
 	"github.com/gestgo/gest/package/technique/validate"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
