@@ -3,15 +3,18 @@ package cache
 import "time"
 
 type ICache interface {
-	// Set a value with a given key and expiration time
-	Set(key string, value any, expiration time.Duration) error
+	// Set a value in the cache with an associated key
+	Set(key string, value any, d time.Duration)
 
-	// Get a value with a given key
-	Get(key string) (any, error)
+	// Get a value from the cache with a given key
+	Get(key string) (any, bool)
 
-	// Delete a value with a given key
-	Delete(key string) error
+	// Delete a value from the cache with a given key
+	Delete(key string)
 
-	// Flush all values from the cache
-	Flush() error
+	// Clear all values from the cache
+	Clear()
+
+	// Get the number of items in the cache
+	Size() int
 }

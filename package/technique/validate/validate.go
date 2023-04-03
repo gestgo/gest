@@ -7,19 +7,19 @@ import (
 type IValidator interface {
 	Validate(i any) error
 }
-type NestGoValidator struct {
+type GestGoValidator struct {
 	Validator *validator.Validate
 }
 
-func (cv *NestGoValidator) Validate(i any) error {
+func (cv *GestGoValidator) Validate(i any) error {
 	if err := cv.Validator.Struct(i); err != nil {
 		return err
 	}
 	return nil
 }
 
-func NewNestGoValidator(validator *validator.Validate) IValidator {
-	return &NestGoValidator{
+func NewGestGoValidator(validator *validator.Validate) IValidator {
+	return &GestGoValidator{
 		Validator: validator,
 	}
 }
