@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/gestgo/main/packages/core/repository"
+	"github.com/gestgo/gest/package/core/repository"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 	"log"
@@ -107,9 +107,9 @@ func (b *BaseGormRepository[T]) Count(ctx context.Context, query any) (count int
 	return
 }
 
-func NewBaseOrmRepository[T any](db *gorm.DB, collectionName string) *BaseGormRepository[T] {
+func NewBaseOrmRepository[T any](db *gorm.DB, table string) *BaseGormRepository[T] {
 	return &BaseGormRepository[T]{
-		Db: db,
+		Db: db, Table: table,
 	}
 }
 

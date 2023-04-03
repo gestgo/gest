@@ -8,7 +8,7 @@ import (
 
 const defaultErrMsg = " field did not pass validation"
 
-var Trans ut.Translator
+/*var Trans ut.Translator*/
 
 func RegisterTranslations(validate *validator.Validate, trans ut.Translator, builtinMessages map[string]string) {
 	for s, message := range builtinMessages {
