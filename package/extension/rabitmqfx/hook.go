@@ -13,7 +13,7 @@ type Params struct {
 	RabbitQueues       []router.IRouter `group:"rabbitQueues"`
 }
 
-func RegisterRedisHooks(
+func RegisterRabbitmqHooks(
 	lifecycle fx.Lifecycle,
 	params Params,
 ) *RabbitmqSubscriber {
