@@ -7,15 +7,15 @@ import (
 )
 
 type II18nLoader interface {
-	LoadData() map[string]Translation
+	LoadData() map[string]ListTranslation
 }
-
+type ListTranslation []Translation
 type I18nJsonLoader struct {
 	path string
-	data map[string]Translation
+	data map[string]ListTranslation
 }
 
-func (i *I18nJsonLoader) LoadData() map[string]Translation {
+func (i *I18nJsonLoader) LoadData() map[string]ListTranslation {
 	return i.data
 }
 
@@ -28,11 +28,11 @@ type Translation struct {
 	Trans    string `json:"trans"`
 	Type     string `json:"type"`
 	Rule     string `json:"rule"`
-	Override string `json:"override"`
+	Override bool   `json:"override"`
 }
 
 func (i *I18nJsonLoader) loadTranslations(path string) error {
-	translations := make(map[string]Translation)
+	translations := make(map[string]ListTranslation)
 
 	files, err := filepath.Glob(filepath.Join(i.path, "*.json"))
 	if err != nil {
@@ -50,9 +50,8 @@ func (i *I18nJsonLoader) loadTranslations(path string) error {
 			return err
 		}
 
-		for _, t := range trans {
-			translations[t.Key] = t
-		}
+		translations[file] = trans
+
 	}
 	i.data = translations
 	return nil
@@ -60,6 +59,6 @@ func (i *I18nJsonLoader) loadTranslations(path string) error {
 func NewI18nJsonLoader(param Params) II18nLoader {
 	return &I18nJsonLoader{
 		path: param.Path,
-		data: map[string]Translation{},
+		data: map[string]ListTranslation{},
 	}
 }
