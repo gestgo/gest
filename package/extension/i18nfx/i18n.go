@@ -19,7 +19,7 @@ func (i *I18nService) T(lang string, params ...string) (string, error) {
 }
 
 type Params struct {
-	I18n *ut.UniversalTranslator "name:UniversalTranslator"
+	I18n *ut.UniversalTranslator "name:universalTranslator"
 }
 
 func NewI18nService(params Params) any {

@@ -1,0 +1,16 @@
+[
+  {
+    "locale": "vi",
+    "key": "cardinal_test",
+    "trans": "toi co 1 day roi di",
+    "type": "Cardinal",
+    "rule": "One"
+  },
+  {
+    "locale": "vi",
+    "key": "cardinal_test",
+    "trans": "toi co {0} day roi di",
+    "type": "Cardinal",
+    "rule": "Other"
+  }
+]

@@ -25,10 +25,13 @@ func NewUniversalTranslator(
 }
 
 type Result struct {
-	UniversalTranslator *ut.UniversalTranslator "name:UniversalTranslator"
+	UniversalTranslator *ut.UniversalTranslator "name:universalTranslator"
 }
 
-func AddTranslators(utrans *ut.UniversalTranslator, Translators []locales.Translator) {
+func AddTranslators(utrans *ut.UniversalTranslator, translators []locales.Translator) {
+	for _, translator := range translators {
+		utrans.AddTranslator(translator, true)
+	}
 
 }
 func LoadTranslate(params I18nParams, utrans *ut.UniversalTranslator) {
