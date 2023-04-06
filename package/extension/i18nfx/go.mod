@@ -1,4 +1,4 @@
-module github.com/gestgo/gest/technique/i18nfx
+module github.com/gestgo/gest/package/technique/i18nfx
 
 go 1.19
 
