@@ -23,3 +23,17 @@ func (q QueryParserErrors) Error() string {
 func NewQueryParsersError(message string) error {
 	return &QueryParserErrors{}
 }
+
+type ValidateError struct {
+	Message string
+}
+
+func (v ValidateError) Error() string {
+	return v.Message
+}
+
+func NewValidateError(message string) error {
+	return &ValidateError{
+		Message: message,
+	}
+}

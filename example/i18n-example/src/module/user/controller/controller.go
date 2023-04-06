@@ -1,13 +1,13 @@
 package controller
 
 import (
+	"github.com/gestgo/gest/package/core/router"
+	"github.com/gestgo/gest/package/extension/echofx/parser"
 	"github.com/labstack/echo/v4"
 	"go.uber.org/fx"
 	"go.uber.org/zap"
-	"net/http"
-	"github.com/gestgo/gest/package/core/router"
-	"github.com/gestgo/gest/package/extension/echofx/parser"
 	"i18n-example/src/module/user/dto"
+	"net/http"
 )
 
 type IUserController interface {
@@ -37,13 +37,13 @@ func NewController(params Params) IUserController {
 
 func NewRouter(params Params) Result {
 	c := NewController(params)
-	return Result{Controller: router.NewBaseRouter[IUserController, IUserController](c)}
+	return Result{Controller: router.NewBaseRouter[IUserController](c)}
 
 }
 
 type Result struct {
 	fx.Out
-	Controller router.IRouter `group:"controllers"`
+	Controller router.IRouter `group:"echoRouters"`
 }
 
 func (b *Controller) Create() {
@@ -57,10 +57,10 @@ func (b *Controller) Create() {
 
 func (b *Controller) FindAll() {
 	b.router.GET("/users", func(c echo.Context) error {
-		param := c.Get("query").(*dto.GetListUserQuery)
-		b.logger.Info(param)
-		return c.JSON(http.StatusOK, param)
-	}, parser.NewQueryParser[dto.GetListUserQuery]("query", true).Parser)
+		//param := c.Get("query").(*dto.GetListUserQuery)
+		//b.logger.Info(c.QueryParams())
+		return c.String(http.StatusOK, "21321321")
+	})
 
 }
 

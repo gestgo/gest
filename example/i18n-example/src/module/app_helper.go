@@ -1,13 +1,11 @@
 package module
 
 import (
-	"i18n-example/config"
-	"i18n-example/docs"
-	"github.com/gestgo/gest/package/extension/echofx/exceptions"
+	"github.com/gestgo/gest/package/extension/echofx/exception"
 	"github.com/gestgo/gest/package/technique/validate"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	echoSwagger "github.com/swaggo/echo-swagger"
+	"i18n-example/config"
 )
 
 func EnableValidationRequest(e *echo.Echo, validator validate.IValidator) {
@@ -22,8 +20,8 @@ func EnableLogRequest(e *echo.Group) {
 }
 
 func EnableSwagger(e *echo.Group) {
-	docs.SwaggerInfo.BasePath = "/v3"
-	e.GET("/swagger/*", echoSwagger.WrapHandler)
+	//docs.SwaggerInfo.BasePath = "/v3"
+	//e.GET("/swagger/*", echoSwagger.WrapHandler)
 }
 
 func EnableErrorHandler(e *echo.Echo, exception exceptions.IEchoCustomException) {

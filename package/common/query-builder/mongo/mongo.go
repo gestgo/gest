@@ -1,10 +1,11 @@
-package query_builder
+package mongo
 
 import (
 	"encoding/json"
 	"errors"
 	"fmt"
 	"go.mongodb.org/mongo-driver/bson"
+	"query-builder"
 	"strings"
 	"time"
 )
@@ -26,17 +27,17 @@ type QueryParser[T any] struct {
 }
 
 func (q QueryParser[T]) validate(object any, field string) (ok bool, error error) {
-	okStr, err := GetTagFromStruct(field, object, "filterable")
+	okStr, err := query_builder.GetTagFromStruct(field, object, "filterable")
 	if err != nil {
-		return false, NewValidateError(error.Error())
+		return false, query_builder.NewValidateError(error.Error())
 	}
 	return okStr == "true", nil
 }
-func (q QueryParser[T]) mapRule(rule *Rule) (query bson.M, err error) {
+func (q QueryParser[T]) mapRule(rule *query_builder.Rule) (query bson.M, err error) {
 
 	field := rule.Field
 	model := *new(T)
-	bsonValue, err := GetTagFromStruct(field, model, "bson")
+	bsonValue, err := query_builder.GetTagFromStruct(field, model, "bson")
 
 	ok, err := q.validate(model, field)
 
@@ -44,10 +45,10 @@ func (q QueryParser[T]) mapRule(rule *Rule) (query bson.M, err error) {
 		return nil, err
 	}
 	if !ok {
-		return nil, fmt.Errorf("Can't fillter %s", field)
+		return nil, fmt.Errorf("can't fillter %s", field)
 	}
 	var value any
-	okStr, err := GetTypeFromStruct(field, *new(T))
+	okStr, err := query_builder.GetTypeFromStruct(field, *new(T))
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +78,7 @@ func (q QueryParser[T]) mapRule(rule *Rule) (query bson.M, err error) {
 	}
 	return query, nil
 }
-func (q QueryParser[T]) mapRuleSet(ruleSet *Rule) (query bson.M, err error) {
+func (q QueryParser[T]) mapRuleSet(ruleSet *query_builder.Rule) (query bson.M, err error) {
 	if len(ruleSet.Rules) == 0 {
 		return bson.M{}, nil
 	}
@@ -108,20 +109,22 @@ func (q QueryParser[T]) mapRuleSet(ruleSet *Rule) (query bson.M, err error) {
 	}
 	return query, nil
 }
-func (q QueryParser[T]) Parser(queryString string, query any) (errors error) {
+func (q QueryParser[T]) Parser(queryString string, query any) (err error) {
 	p := new(QueryParser[T])
-	rule := new(Rule)
+	rule := new(query_builder.Rule)
 	if err := json.Unmarshal([]byte(queryString), rule); err != nil {
 		return err
 	}
-	query, err := p.mapRuleSet(rule)
+	queryParser, err := p.mapRuleSet(rule)
+
 	if err != nil {
 		return err
 	}
+	*query.(*bson.M) = queryParser
 	return err
 }
 
-func NewQueryMongoBuilderParser[T any]() IQueryBuilder {
+func NewQueryMongoBuilderParser[T any]() query_builder.IQueryBuilder {
 
 	return &QueryParser[T]{}
 
