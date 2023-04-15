@@ -1,7 +1,7 @@
 package i18nfx
 
 import (
-	"github.com/gestgo/gest/technique/i18n/loader"
+	"github.com/gestgo/gest/package/extension/i18nfx/loader"
 	"github.com/go-playground/locales"
 	"github.com/go-playground/locales/en"
 	ut "github.com/go-playground/universal-translator"
