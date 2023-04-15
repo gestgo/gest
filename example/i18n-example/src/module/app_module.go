@@ -2,6 +2,7 @@ package module
 
 import (
 	"github.com/gestgo/gest/package/extension/echofx"
+	"github.com/gestgo/gest/package/extension/i18nfx"
 	"github.com/gestgo/gest/package/technique/logfx"
 	"github.com/labstack/echo/v4"
 	"go.uber.org/fx"
@@ -29,7 +30,7 @@ func NewApp() *fx.App {
 		echofx.Module(),
 		user.Module(),
 		logfx.Module(),
-		i18nfx
+		i18nfx.Module(),
 		fx.Invoke(EnableSwagger),
 		fx.Invoke(EnableLogRequest),
 		//fx.Invoke(EnableValidationRequest),

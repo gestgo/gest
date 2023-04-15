@@ -59,6 +59,10 @@ github.com/envoyproxy/protoc-gen-validate v0.1.0/go.mod h1:iSmxcyjqTsJpI2R4NaDN7
 github.com/frankban/quicktest v1.14.3 h1:FJKSZTDHjyhriyC81FLQ0LY93eSai0ZyR/ZIkd3ZUKE=
 github.com/fsnotify/fsnotify v1.6.0 h1:n+5WquG0fcWoWp6xPWfHdbskMCQaFnG6PfBrh1Ky4HY=
 github.com/fsnotify/fsnotify v1.6.0/go.mod h1:sl3t1tCWJFWoRz9R8WJCbQihKKwmorjAbSClcnxKAGw=
+github.com/gestgo/gest v0.0.4 h1:nv5esWNZkqaqv1qAhBxlgtkiIdQR+dJYgKXyRLudO/4=
+github.com/gestgo/gest v0.0.4/go.mod h1:t59eAigayyP3/XbnxL95y0IYuKDJVxyUPX3dZfhQ2r4=
+github.com/gestgo/gest v0.0.5 h1:54+S3mav0eKojMzDAJjPHlJJTCezTCkOjOpYi2l35eU=
+github.com/gestgo/gest v0.0.5/go.mod h1:t59eAigayyP3/XbnxL95y0IYuKDJVxyUPX3dZfhQ2r4=
 github.com/gestgo/gest/package/common/config v0.0.0-20230401043820-44eaa851a87e h1:vvokfy7xGEdQLl3r/UTyS70jbr/xjiRKanqv9W83m5U=
 github.com/gestgo/gest/package/common/config v0.0.0-20230401043820-44eaa851a87e/go.mod h1:xWEnyCERry7LbptEDokG5AWPnYrUQyv6WSmerI+XRY0=
 github.com/gestgo/gest/package/core v0.0.0-20230331135242-1bc85665f5a0 h1:PlIHAP80KzknbDb1qNt1zoTeZa41GyfPxfb+u4pMPQs=
