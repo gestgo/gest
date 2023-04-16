@@ -2,7 +2,6 @@ package module
 
 import (
 	"github.com/gestgo/gest/package/extension/echofx"
-	"github.com/gestgo/gest/package/extension/i18nfx"
 	"github.com/gestgo/gest/package/technique/logfx"
 	"github.com/labstack/echo/v4"
 	"go.uber.org/fx"
