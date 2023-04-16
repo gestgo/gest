@@ -16,7 +16,7 @@ type Params struct {
 func RegisterScheduleHooks(
 	lifecycle fx.Lifecycle,
 	params Params,
-) *Result {
+) Result {
 	platform := params.Platform
 	lifecycle.Append(
 		fx.Hook{
@@ -34,7 +34,7 @@ func RegisterScheduleHooks(
 
 			},
 		})
-	return &Result{
+	return Result{
 		Platform: platform,
 	}
 
