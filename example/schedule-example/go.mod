@@ -1,4 +1,4 @@
-module i18n-example
+module schedule-example
 
 go 1.19
 

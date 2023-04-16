@@ -1,7 +1,7 @@
 package main
 
 import (
-	"i18n-example/src/module"
+	"schedule-example/src/module"
 )
 
 func main() {

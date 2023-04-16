@@ -5,7 +5,7 @@ import (
 	"github.com/gestgo/gest/package/technique/logfx"
 	"github.com/go-co-op/gocron"
 	"go.uber.org/fx"
-	"i18n-example/src/module/user"
+	"schedule-example/src/module/user"
 	"time"
 )
 
