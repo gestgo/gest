@@ -4,9 +4,9 @@ go 1.19
 
 require (
 	github.com/gestgo/gest/package/common/config v0.0.0-20230401043820-44eaa851a87e
-	github.com/gestgo/gest/package/core v0.0.0-20230415175542-f220639108bb
+	github.com/gestgo/gest/package/core v0.0.0-20230416065420-faa1d80133c6
 	github.com/gestgo/gest/package/extension/echofx v0.0.0-20230405230600-f928601be63b
-	github.com/gestgo/gest/package/extension/schedulefx v0.0.0-20230416032746-4cfd9b9e261a
+	github.com/gestgo/gest/package/extension/schedulefx v0.0.0-20230416065420-faa1d80133c6
 	github.com/gestgo/gest/package/technique/logfx v0.0.0-20230401060758-51afb4be69bd
 	github.com/gestgo/gest/package/technique/validate v0.0.0-20230401060758-51afb4be69bd
 	github.com/go-co-op/gocron v1.22.1

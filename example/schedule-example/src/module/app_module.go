@@ -5,6 +5,7 @@ import (
 	"github.com/gestgo/gest/package/technique/logfx"
 	"github.com/go-co-op/gocron"
 	"go.uber.org/fx"
+	"i18n-example/src/module/user"
 	"time"
 )
 
@@ -17,10 +18,10 @@ func NewApp() *fx.App {
 				},
 				fx.ResultTags(`name:"platformGoCron"`)),
 		),
-		//user.Module(),
+		user.Module(),
 		logfx.Module(),
 		schedulefx.Module(),
-		//fx.Invoke(func(*gocron.Scheduler) {}),
+		fx.Invoke(func(*gocron.Scheduler) {}),
 	)
 
 }

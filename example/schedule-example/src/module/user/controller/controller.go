@@ -12,7 +12,7 @@ type IUserController interface {
 }
 type Params struct {
 	fx.In
-	platformGoCron *gocron.Scheduler
+	PlatformGoCron *gocron.Scheduler `name:"platformGoCron"`
 	Logger         *zap.SugaredLogger
 }
 type Controller struct {
@@ -23,7 +23,7 @@ type Controller struct {
 
 func NewController(params Params) IUserController {
 	return &Controller{
-		platformGoCron: params.platformGoCron,
+		platformGoCron: params.PlatformGoCron,
 		logger:         params.Logger,
 	}
 }
@@ -36,12 +36,13 @@ func NewRouter(params Params) Result {
 
 type Result struct {
 	fx.Out
-	Controller router.IRouter `group:"echoRouters"`
+	Controller router.IRouter `group:"cronJobs"`
 }
 
 func (b *Controller) CheckUser() {
+	b.logger.Info("run it ")
 
-	b.platformGoCron.Every(1).Do(func() {
+	b.platformGoCron.Every(1).Second().Do(func() {
 		b.logger.Info("test cron job")
 	})
 

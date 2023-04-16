@@ -63,10 +63,14 @@ github.com/gestgo/gest/package/common/config v0.0.0-20230401043820-44eaa851a87e 
 github.com/gestgo/gest/package/common/config v0.0.0-20230401043820-44eaa851a87e/go.mod h1:xWEnyCERry7LbptEDokG5AWPnYrUQyv6WSmerI+XRY0=
 github.com/gestgo/gest/package/core v0.0.0-20230415175542-f220639108bb h1:RppnR3Lt1F4Q4dbZoBUUMseG1Kl4uszucHb5mpphN/w=
 github.com/gestgo/gest/package/core v0.0.0-20230415175542-f220639108bb/go.mod h1:FqfmzklyVLGboejgGBa1B86otxq6i+DCXQmO8EuF/Hc=
+github.com/gestgo/gest/package/core v0.0.0-20230416065420-faa1d80133c6 h1:g2NS6OVCByeJYuYgiE2N/HO6eK3uEERmrbBVmywrquo=
+github.com/gestgo/gest/package/core v0.0.0-20230416065420-faa1d80133c6/go.mod h1:FqfmzklyVLGboejgGBa1B86otxq6i+DCXQmO8EuF/Hc=
 github.com/gestgo/gest/package/extension/echofx v0.0.0-20230405230600-f928601be63b h1:RJ2fXNV57RtkRHjAchNQT5uNqvQIbGCQMt3wQiHU7Kc=
 github.com/gestgo/gest/package/extension/echofx v0.0.0-20230405230600-f928601be63b/go.mod h1:pLhK5Ec0YbFj+yKBSdphtSmJFcrSomI478y1zzTHcLE=
 github.com/gestgo/gest/package/extension/schedulefx v0.0.0-20230416032746-4cfd9b9e261a h1:gMMo2KjhuoH6Wth/gkh4vZ1/geG1unlPnwsMwORWB0E=
 github.com/gestgo/gest/package/extension/schedulefx v0.0.0-20230416032746-4cfd9b9e261a/go.mod h1:lkT7DQDGb55HAQLQ+t4igK2F1dvysjwfYbL6GGjLUi4=
+github.com/gestgo/gest/package/extension/schedulefx v0.0.0-20230416065420-faa1d80133c6 h1:pO9TuV6NCyFdLBOqTOhWOHgMRrhvkRu7qoTrAMu9g20=
+github.com/gestgo/gest/package/extension/schedulefx v0.0.0-20230416065420-faa1d80133c6/go.mod h1:lkT7DQDGb55HAQLQ+t4igK2F1dvysjwfYbL6GGjLUi4=
 github.com/gestgo/gest/package/technique/logfx v0.0.0-20230401060758-51afb4be69bd h1:9twu5VVHAajSjXM0SM7BUcwSL0gRWVfVWVnQve3ZRWI=
 github.com/gestgo/gest/package/technique/logfx v0.0.0-20230401060758-51afb4be69bd/go.mod h1:oKlD0/u2xyCkON27FnBiO207vlLD0FL5GwZME4kXlXw=
 github.com/gestgo/gest/package/technique/validate v0.0.0-20230401060758-51afb4be69bd h1:ykM19cjuXTBntfxlJHiNDHG1Y0xKStN1IkQHI0vwexI=
