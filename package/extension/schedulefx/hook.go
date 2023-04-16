@@ -10,7 +10,7 @@ import (
 type Params struct {
 	fx.In
 	Platform *gocron.Scheduler `name:"platformGoCron"`
-	CronJobs []router.IRouter  `group:"cronJob"`
+	CronJobs []router.IRouter  `group:"cronJobs"`
 }
 
 func RegisterScheduleHooks(
