@@ -31,7 +31,7 @@ func NewApp() *fx.App {
 					return loader.NewI18nJsonLoader(loader.Params{Path: "../../locales/en"})
 
 				},
-				fx.ParamTags(`name:"platformEcho"`),
+				fx.ParamTags(`name:"i18nLoader "`),
 			),
 		),
 

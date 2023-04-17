@@ -6,6 +6,9 @@ import (
 	"go.uber.org/fx"
 )
 
+type II18nService interface {
+	T(lang string, params ...string) (string, error)
+}
 type I18nService struct {
 	i18n *ut.UniversalTranslator
 }
@@ -22,7 +25,7 @@ type Params struct {
 	I18n *ut.UniversalTranslator "name:universalTranslator"
 }
 
-func NewI18nService(params Params) any {
+func NewI18nService(params Params) II18nService {
 	return &I18nService{
 		i18n: params.I18n,
 	}
