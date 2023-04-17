@@ -2,6 +2,8 @@ package module
 
 import (
 	"github.com/gestgo/gest/package/extension/echofx"
+	"github.com/gestgo/gest/package/extension/i18nfx"
+	"github.com/gestgo/gest/package/extension/i18nfx/loader"
 	"github.com/gestgo/gest/package/technique/logfx"
 	"github.com/labstack/echo/v4"
 	"go.uber.org/fx"
@@ -24,16 +26,17 @@ func NewApp() *fx.App {
 				SetGlobalPrefix,
 				fx.ParamTags(`name:"platformEcho"`),
 			),
+			fx.Annotate(
+				func() loader.II18nLoader {
+					return loader.NewI18nJsonLoader(loader.Params{Path: "../../locales/en"})
+				},
+			),
 		),
-		//fx.Provide(exceptions.NewI18nValidationException),
+
 		echofx.Module(),
 		user.Module(),
 		logfx.Module(),
 		i18nfx.Module(),
-		fx.Invoke(EnableSwagger),
-		fx.Invoke(EnableLogRequest),
-		//fx.Invoke(EnableValidationRequest),
-		//fx.Invoke(EnableErrorHandler),
 		fx.Invoke(func(*echo.Echo) {}),
 	)
 

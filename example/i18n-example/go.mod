@@ -6,6 +6,7 @@ require (
 	github.com/gestgo/gest/package/common/config v0.0.0-20230401043820-44eaa851a87e
 	github.com/gestgo/gest/package/core v0.0.0-20230405230600-f928601be63b
 	github.com/gestgo/gest/package/extension/echofx v0.0.0-20230405230600-f928601be63b
+	github.com/gestgo/gest/package/extension/i18nfx v0.0.0-20230416084356-b189d69ca1bc
 	github.com/gestgo/gest/package/technique/logfx v0.0.0-20230401060758-51afb4be69bd
 	github.com/gestgo/gest/package/technique/validate v0.0.0-20230401060758-51afb4be69bd
 	github.com/labstack/echo/v4 v4.10.2
@@ -15,7 +16,6 @@ require (
 
 require (
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
-	github.com/gestgo/gest v0.0.5 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-playground/validator/v10 v10.12.0 // indirect

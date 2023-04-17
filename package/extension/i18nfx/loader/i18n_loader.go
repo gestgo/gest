@@ -2,6 +2,7 @@ package loader
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"path/filepath"
 )
@@ -16,6 +17,10 @@ type I18nJsonLoader struct {
 }
 
 func (i *I18nJsonLoader) LoadData() map[string]ListTranslation {
+	err := i.loadTranslations(i.path)
+	if err != nil {
+		fmt.Println("i18n err", err)
+	}
 	return i.data
 }
 

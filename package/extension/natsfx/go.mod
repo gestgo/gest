@@ -1,6 +1,6 @@
 module github.com/gestgo/gest/package/extension/natsfx
 
-go 1.20
+go 1.19
 
 require (
 	github.com/gestgo/gest/package/core v0.0.0-20230402165735-b13a96e7ce4d
