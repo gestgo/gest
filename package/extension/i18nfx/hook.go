@@ -8,8 +8,8 @@ import (
 )
 
 type I18nParams struct {
-	Loader      loader.II18nLoader   `name:i18nLoader`
-	Translators []locales.Translator `group:translators`
+	Loader      loader.II18nLoader   `name:"i18nLoader"`
+	Translators []locales.Translator `group:"translators"`
 }
 
 func NewUniversalTranslator(

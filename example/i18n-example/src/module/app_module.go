@@ -29,7 +29,9 @@ func NewApp() *fx.App {
 			fx.Annotate(
 				func() loader.II18nLoader {
 					return loader.NewI18nJsonLoader(loader.Params{Path: "../../locales/en"})
+
 				},
+				fx.ParamTags(`name:"platformEcho"`),
 			),
 		),
 
