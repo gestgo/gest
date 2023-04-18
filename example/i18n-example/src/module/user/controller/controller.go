@@ -6,6 +6,8 @@ import (
 	"github.com/labstack/echo/v4"
 	"go.uber.org/fx"
 	"go.uber.org/zap"
+	"i18n-example/locales"
+	"i18n-example/src/module/i18nfx"
 	"i18n-example/src/module/user/dto"
 	"net/http"
 )
@@ -19,19 +21,22 @@ type IUserController interface {
 }
 type Params struct {
 	fx.In
-	Router *echo.Group
-	Logger *zap.SugaredLogger
+	Router      *echo.Group
+	Logger      *zap.SugaredLogger
+	I18nService i18nfx.II18nService
 }
 type Controller struct {
 	//fx.In
-	router *echo.Group
-	logger *zap.SugaredLogger
+	router      *echo.Group
+	logger      *zap.SugaredLogger
+	i18nService i18nfx.II18nService
 }
 
 func NewController(params Params) IUserController {
 	return &Controller{
-		router: params.Router,
-		logger: params.Logger,
+		router:      params.Router,
+		logger:      params.Logger,
+		i18nService: params.I18nService,
 	}
 }
 
@@ -59,7 +64,12 @@ func (b *Controller) FindAll() {
 	b.router.GET("/users", func(c echo.Context) error {
 		//param := c.Get("query").(*dto.GetListUserQuery)
 		//b.logger.Info(c.QueryParams())
-		return c.String(http.StatusOK, "21321321")
+
+		//b.logger.Info(b.i18nService.T("en", locales.CARDINAL_TEST))
+		//b.logger.Infof("")
+		message, err := b.i18nService.T("en", locales.CARDINAL_TEST, "2")
+		b.logger.Info(err)
+		return c.String(http.StatusOK, message)
 	})
 
 }

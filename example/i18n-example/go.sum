@@ -69,6 +69,8 @@ github.com/gestgo/gest/package/extension/i18nfx v0.0.0-20230416084356-b189d69ca1
 github.com/gestgo/gest/package/extension/i18nfx v0.0.0-20230416084356-b189d69ca1bc/go.mod h1:wrIj0Lkoa2K9ovsGsTca0XPhvCVi7vBQzR4WfTqebQo=
 github.com/gestgo/gest/package/extension/i18nfx v0.0.0-20230417174220-b32ff3c0b24f h1:jaTMN2cj9zNEfPtNtICJ9TNs21EJPbmjEpip7ZzBMW4=
 github.com/gestgo/gest/package/extension/i18nfx v0.0.0-20230417174220-b32ff3c0b24f/go.mod h1:wrIj0Lkoa2K9ovsGsTca0XPhvCVi7vBQzR4WfTqebQo=
+github.com/gestgo/gest/package/extension/i18nfx v0.0.0-20230417175921-afa03856e980 h1:nlKqhKu9heAoPBBjaNieVkB7xp2YC94Manc3IQ6mmB8=
+github.com/gestgo/gest/package/extension/i18nfx v0.0.0-20230417175921-afa03856e980/go.mod h1:wrIj0Lkoa2K9ovsGsTca0XPhvCVi7vBQzR4WfTqebQo=
 github.com/gestgo/gest/package/technique/logfx v0.0.0-20230401060758-51afb4be69bd h1:9twu5VVHAajSjXM0SM7BUcwSL0gRWVfVWVnQve3ZRWI=
 github.com/gestgo/gest/package/technique/logfx v0.0.0-20230401060758-51afb4be69bd/go.mod h1:oKlD0/u2xyCkON27FnBiO207vlLD0FL5GwZME4kXlXw=
 github.com/gestgo/gest/package/technique/validate v0.0.0-20230401060758-51afb4be69bd h1:ykM19cjuXTBntfxlJHiNDHG1Y0xKStN1IkQHI0vwexI=

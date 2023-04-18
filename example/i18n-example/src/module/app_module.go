@@ -2,12 +2,13 @@ package module
 
 import (
 	"github.com/gestgo/gest/package/extension/echofx"
-	"github.com/gestgo/gest/package/extension/i18nfx"
-	"github.com/gestgo/gest/package/extension/i18nfx/loader"
 	"github.com/gestgo/gest/package/technique/logfx"
+	"github.com/go-playground/locales/en"
 	"github.com/labstack/echo/v4"
 	"go.uber.org/fx"
 	"i18n-example/config"
+	"i18n-example/src/module/i18nfx"
+	"i18n-example/src/module/i18nfx/loader"
 	"i18n-example/src/module/user"
 )
 
@@ -28,10 +29,14 @@ func NewApp() *fx.App {
 			),
 			fx.Annotate(
 				func() loader.II18nLoader {
-					return loader.NewI18nJsonLoader(loader.Params{Path: "../../locales/en"})
+					return loader.NewI18nJsonLoader(loader.Params{Path: "/home/phongthien/Desktop/start-up/gest/example/i18n-example/locales/en"})
 
 				},
-				fx.ParamTags(`name:"i18nLoader "`),
+				fx.ResultTags(`name:"i18nLoader"`),
+			),
+			fx.Annotate(
+				en.New,
+				fx.ResultTags(`group:"translators"`),
 			),
 		),
 
