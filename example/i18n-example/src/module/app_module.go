@@ -7,7 +7,6 @@ import (
 	"github.com/labstack/echo/v4"
 	"go.uber.org/fx"
 	"i18n-example/config"
-	"i18n-example/src/module/i18nfx"
 	"i18n-example/src/module/i18nfx/loader"
 	"i18n-example/src/module/user"
 )
@@ -43,7 +42,7 @@ func NewApp() *fx.App {
 		echofx.Module(),
 		user.Module(),
 		logfx.Module(),
-		i18nfx.Module(),
+
 		fx.Invoke(func(*echo.Echo) {}),
 	)
 

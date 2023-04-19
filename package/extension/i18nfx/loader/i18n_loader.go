@@ -17,10 +17,7 @@ type I18nJsonLoader struct {
 }
 
 func (i *I18nJsonLoader) LoadData() map[string]ListTranslation {
-	err := i.loadTranslations(i.path)
-	if err != nil {
-		fmt.Println("i18n err", err)
-	}
+
 	return i.data
 }
 
@@ -54,16 +51,23 @@ func (i *I18nJsonLoader) loadTranslations(path string) error {
 		if err := json.Unmarshal(data, &trans); err != nil {
 			return err
 		}
-
-		translations[file] = trans
+		fileExt := filepath.Ext(file)
+		fileName := filepath.Base(file)
+		translations[fileName[0:len(fileName)-len(fileExt)]] = trans
 
 	}
 	i.data = translations
 	return nil
 }
 func NewI18nJsonLoader(param Params) II18nLoader {
-	return &I18nJsonLoader{
+	i := &I18nJsonLoader{
 		path: param.Path,
 		data: map[string]ListTranslation{},
 	}
+	err := i.loadTranslations(i.path)
+	if err != nil {
+		fmt.Println("i18n err")
+		fmt.Println(err)
+	}
+	return i
 }

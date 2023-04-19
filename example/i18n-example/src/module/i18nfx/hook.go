@@ -47,17 +47,23 @@ func LoadTranslate(params I18nParams, utrans *ut.UniversalTranslator) {
 
 		if val, ok := data[trans.Locale()]; ok {
 			transLocale, _ := utrans.GetTranslator(trans.Locale())
+
 			for _, translation := range val {
+
 				switch translation.Type {
 				case "Ordinal":
 					transLocale.AddOrdinal(translation.Key, translation.Trans, StringToPluralRule(translation.Rule), translation.Override)
+					continue
 				case "Cardinal":
 					transLocale.AddCardinal(translation.Key, translation.Trans, StringToPluralRule(translation.Rule), translation.Override)
+					continue
 				case "Range":
 					transLocale.AddRange(translation.Key, translation.Trans, StringToPluralRule(translation.Rule), translation.Override)
+					continue
 
 				default:
-					transLocale.Add(translation.Key, translation.Trans, true)
+					transLocale.Add(translation.Key, translation.Trans, false)
+					continue
 				}
 
 			}

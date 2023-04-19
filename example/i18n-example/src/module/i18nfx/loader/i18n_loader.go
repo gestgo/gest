@@ -37,8 +37,6 @@ func (i *I18nJsonLoader) loadTranslations(path string) error {
 	translations := make(map[string]ListTranslation)
 
 	files, err := filepath.Glob(filepath.Join(i.path, "*.json"))
-	fmt.Print("file hear")
-	fmt.Print(files)
 	if err != nil {
 		return err
 	}
