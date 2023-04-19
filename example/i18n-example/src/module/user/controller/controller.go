@@ -3,11 +3,11 @@ package controller
 import (
 	"github.com/gestgo/gest/package/core/router"
 	"github.com/gestgo/gest/package/extension/echofx/parser"
+	"github.com/gestgo/gest/package/extension/i18nfx"
 	"github.com/labstack/echo/v4"
 	"go.uber.org/fx"
 	"go.uber.org/zap"
 	"i18n-example/locales"
-	"i18n-example/src/module/i18nfx"
 	"i18n-example/src/module/user/dto"
 	"net/http"
 )
