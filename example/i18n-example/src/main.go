@@ -5,6 +5,7 @@ import (
 )
 
 func main() {
+
 	app := module.NewApp()
 	app.Run()
 }

@@ -62,12 +62,8 @@ func (b *Controller) Create() {
 
 func (b *Controller) FindAll() {
 	b.router.GET("/users", func(c echo.Context) error {
-		//param := c.Get("query").(*dto.GetListUserQuery)
-		//b.logger.Info(c.QueryParams())
 
-		//b.logger.Info(b.i18nService.T("en", locales.CARDINAL_TEST))
-		//b.logger.Infof("")
-		message, err := b.i18nService.T("en", locales.CARDINAL_TEST, "2")
+		message, err := b.i18nService.T("en", locales.CARDINAL_TEST)
 		b.logger.Info(err)
 		return c.String(http.StatusOK, message)
 	})

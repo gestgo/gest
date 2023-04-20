@@ -1,6 +1,7 @@
 package module
 
 import (
+	"fmt"
 	"github.com/gestgo/gest/package/extension/echofx"
 	"github.com/gestgo/gest/package/extension/i18nfx"
 	"github.com/gestgo/gest/package/extension/i18nfx/loader"
@@ -10,8 +11,18 @@ import (
 	"go.uber.org/fx"
 	"i18n-example/config"
 	"i18n-example/src/module/user"
+	"os"
 )
 
+func getCurrentDir() string {
+	pwd, err := os.Getwd()
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	return pwd
+
+}
 func NewApp() *fx.App {
 	return fx.New(
 		fx.Provide(
@@ -29,7 +40,7 @@ func NewApp() *fx.App {
 			),
 			fx.Annotate(
 				func() loader.II18nLoader {
-					return loader.NewI18nJsonLoader(loader.Params{Path: "/home/phongthien/Desktop/start-up/gest/example/i18n-example/locales/en"})
+					return loader.NewI18nJsonLoader(loader.Params{Path: fmt.Sprintf("%s/locales", getCurrentDir())})
 
 				},
 				fx.ResultTags(`name:"i18nLoader"`),
