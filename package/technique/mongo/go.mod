@@ -1,4 +1,4 @@
-module github.com/gestgo/gest/technique/mongo
+module github.com/gestgo/gest/package/technique/mongo
 
 go 1.19
 
