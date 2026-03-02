@@ -33,13 +33,13 @@ tasks:
   fmt:
     desc: Format all Go code with goimports
     cmds:
-      - goimports -local github.com/gestgo/gest -w ./package/common/config ./package/common/log ./package/core/lifecycle
+      - goimports -local github.com/gestgo/gest -w ./package/common/config ./package/common/log ./package/core/lifecycle ./package/extension/mcp
 
   fmt:check:
     desc: Check formatting without modifying files (exits 1 if any file needs reformatting)
     cmds:
       - |
-        unformatted=$(goimports -local github.com/gestgo/gest -l ./package/common/config ./package/common/log ./package/core/lifecycle)
+        unformatted=$(goimports -local github.com/gestgo/gest -l ./package/common/config ./package/common/log ./package/core/lifecycle ./package/extension/mcp)
         if [ -n "$unformatted" ]; then
           echo "Files need formatting:"
           echo "$unformatted"
@@ -55,6 +55,7 @@ tasks:
       - task: lint:config
       - task: lint:log
       - task: lint:lifecycle
+      - task: lint:mcp
 
   lint:config:
     desc: Lint package/common/config
@@ -79,6 +80,14 @@ tasks:
       GOWORK: "off"
     cmds:
       - golangci-lint run --config ../../.golangci.yml ./...
+
+  lint:mcp:
+    desc: Lint package/extension/mcp
+    dir: package/extension/mcp
+    env:
+      GOWORK: "off"
+    cmds:
+      - golangci-lint run --config ../../../.golangci.yml ./...
 
   # ─── Test ────────────────────────────────────────────────────────────────────
 
