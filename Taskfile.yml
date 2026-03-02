@@ -1,0 +1,141 @@
+version: '3'
+
+tasks:
+  default:
+    desc: List all available tasks
+    silent: true
+    cmds:
+      - task --list
+
+  # ─── Setup ───────────────────────────────────────────────────────────────────
+
+  install-tools:
+    desc: Install required Go development tools (goimports, golangci-lint, commitlint, lefthook)
+    cmds:
+      - go install golang.org/x/tools/cmd/goimports@latest
+      - go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+      - go install github.com/conventionalcommit/commitlint@latest
+      - go install github.com/evilmartians/lefthook@latest
+
+  hooks:install:
+    desc: Install git hooks via Lefthook
+    cmds:
+      - lefthook install
+
+  setup:
+    desc: Full project setup — install tools then install git hooks
+    cmds:
+      - task: install-tools
+      - task: hooks:install
+
+  # ─── Format ──────────────────────────────────────────────────────────────────
+
+  fmt:
+    desc: Format all Go code with goimports
+    cmds:
+      - goimports -local github.com/gestgo/gest -w ./package/common/config ./package/common/log ./package/core/lifecycle
+
+  fmt:check:
+    desc: Check formatting without modifying files (exits 1 if any file needs reformatting)
+    cmds:
+      - |
+        unformatted=$(goimports -local github.com/gestgo/gest -l ./package/common/config ./package/common/log ./package/core/lifecycle)
+        if [ -n "$unformatted" ]; then
+          echo "Files need formatting:"
+          echo "$unformatted"
+          exit 1
+        fi
+        echo "All files are formatted correctly."
+
+  # ─── Lint ────────────────────────────────────────────────────────────────────
+
+  lint:
+    desc: Run golangci-lint on all packages sequentially
+    cmds:
+      - task: lint:config
+      - task: lint:log
+      - task: lint:lifecycle
+
+  lint:config:
+    desc: Lint package/common/config
+    dir: package/common/config
+    env:
+      GOWORK: "off"
+    cmds:
+      - golangci-lint run --config ../../.golangci.yml ./...
+
+  lint:log:
+    desc: Lint package/common/log
+    dir: package/common/log
+    env:
+      GOWORK: "off"
+    cmds:
+      - golangci-lint run --config ../../.golangci.yml ./...
+
+  lint:lifecycle:
+    desc: Lint package/core/lifecycle
+    dir: package/core/lifecycle
+    env:
+      GOWORK: "off"
+    cmds:
+      - golangci-lint run --config ../../.golangci.yml ./...
+
+  # ─── Test ────────────────────────────────────────────────────────────────────
+
+  test:config:
+    desc: Run tests for package/common/config
+    dir: package/common/config
+    env:
+      GOWORK: "off"
+    cmds:
+      - go test ./...
+
+  test:log:
+    desc: Run tests for package/common/log
+    dir: package/common/log
+    env:
+      GOWORK: "off"
+    cmds:
+      - go test ./...
+
+  test:lifecycle:
+    desc: Run tests for package/core/lifecycle
+    dir: package/core/lifecycle
+    env:
+      GOWORK: "off"
+    cmds:
+      - go test ./...
+
+  # ─── CI Check ────────────────────────────────────────────────────────────────
+
+  check:
+    desc: Run full quality gate — fmt:check, lint, test
+    cmds:
+      - task: fmt:check
+      - task: lint
+      - task: test:config
+      - task: test:log
+      - task: test:lifecycle
+
+  # ─── Release ─────────────────────────────────────────────────────────────────
+
+  release:config:
+    desc: "Release package/common/config. Usage: task release:config -- patch|minor|major"
+    cmds:
+      - task: lint:config
+      - task: test:config
+      - npm run release:config -- {{.CLI_ARGS}}
+
+  release:log:
+    desc: "Release package/common/log. Usage: task release:log -- patch|minor|major"
+    cmds:
+      - task: lint:log
+      - task: test:log
+      - npm run release:log -- {{.CLI_ARGS}}
+
+  release:lifecycle:
+    desc: "Release package/core/lifecycle. Usage: task release:lifecycle -- patch|minor|major"
+    cmds:
+      - task: lint:lifecycle
+      - task: test:lifecycle
+      - npm run release:lifecycle -- {{.CLI_ARGS}}

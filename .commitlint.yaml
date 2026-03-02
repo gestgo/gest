@@ -1,0 +1,34 @@
+formatter: default
+
+rules:
+  header-max-length:
+    severity: error
+    value: 100
+  type-enum:
+    severity: error
+    value:
+      - feat
+      - fix
+      - docs
+      - style
+      - refactor
+      - test
+      - chore
+      - perf
+      - ci
+      - build
+      - revert
+  type-empty:
+    severity: error
+  subject-empty:
+    severity: error
+  subject-full-stop:
+    severity: error
+    value: "."
+    negate: true
+  type-case:
+    severity: error
+    value: lower-case
+  scope-case:
+    severity: error
+    value: lower-case
