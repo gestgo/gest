@@ -9,30 +9,30 @@ import (
 	mcpserver "github.com/mark3labs/mcp-go/server"
 )
 
-// TransportType xác định kiểu transport của MCP server
+// TransportType defines the transport type of the MCP server
 type TransportType string
 
 const (
-	// TransportStdio dùng stdin/stdout — phù hợp cho Claude Desktop, CLI tools
+	// TransportStdio uses stdin/stdout — suitable for Claude Desktop, CLI tools
 	TransportStdio TransportType = "stdio"
-	// TransportSSE dùng HTTP Server-Sent Events — phù hợp cho web clients
+	// TransportSSE uses HTTP Server-Sent Events — suitable for web clients
 	TransportSSE TransportType = "sse"
 )
 
-// Config cấu hình cho MCPAdapter
+// Config holds configuration for MCPAdapter
 type Config struct {
-	// Name tên MCP server (hiển thị với LLM client)
+	// Name is the MCP server name (displayed to the LLM client)
 	Name string
-	// Version phiên bản server
+	// Version is the server version
 	Version string
-	// Transport kiểu transport: stdio hoặc sse (mặc định stdio)
+	// Transport is the transport type: stdio or sse (default stdio)
 	Transport TransportType
-	// Port cổng lắng nghe — chỉ dùng khi Transport == TransportSSE
+	// Port is the listening port — only used when Transport == TransportSSE
 	Port int
 }
 
-// MCPAdapter implement lifecycle.AdapterLifecycle cho MCP server
-// Nhúng BaseAdapter[Config] để tái sử dụng pattern lifecycle chung
+// MCPAdapter implements lifecycle.AdapterLifecycle for an MCP server.
+// It embeds BaseAdapter[Config] to reuse the common lifecycle pattern.
 type MCPAdapter struct {
 	lifecycle.BaseAdapter[Config]
 
@@ -42,14 +42,14 @@ type MCPAdapter struct {
 	cancelStdio context.CancelFunc
 }
 
-// New khởi tạo MCPAdapter
+// New creates and returns a new MCPAdapter.
 //
 // Parameters:
-//   - cfg: Cấu hình server (name, version, transport, port)
-//   - handlers: Danh sách IMCPHandler để đăng ký tools/resources/prompts
+//   - cfg: Server configuration (name, version, transport, port)
+//   - handlers: List of IMCPHandler to register tools/resources/prompts
 //
 // Returns:
-//   - *MCPAdapter đã khởi tạo, chưa start
+//   - *MCPAdapter initialized but not yet started
 func New(cfg Config, handlers ...IMCPHandler) *MCPAdapter {
 	srv := mcpserver.NewMCPServer(cfg.Name, cfg.Version)
 
@@ -66,7 +66,7 @@ func New(cfg Config, handlers ...IMCPHandler) *MCPAdapter {
 	return a
 }
 
-// Server trả về MCPServer bên trong — dùng để đăng ký tools thủ công nếu cần
+// Server returns the underlying MCPServer — useful for manually registering tools if needed.
 func (a *MCPAdapter) Server() *mcpserver.MCPServer {
 	return a.server
 }
