@@ -85,7 +85,10 @@ func (a *MCPAdapter) OnStart(ctx context.Context) error {
 		stdioCtx, cancel := context.WithCancel(context.Background())
 		a.cancelStdio = cancel
 		stdio := mcpserver.NewStdioServer(a.server)
-		go stdio.Listen(stdioCtx, os.Stdin, os.Stdout) //nolint:errcheck
+		go func() {
+			stdio.Listen(stdioCtx, os.Stdin, os.Stdout) //nolint:errcheck
+			os.Exit(0)                                  // stdin closed → client disconnected
+		}()
 	}
 
 	return nil

@@ -6,15 +6,15 @@ import (
 	"github.com/gestgo/gest/package/extension/mcp"
 	mcpserver "github.com/mark3labs/mcp-go/server"
 	"go.uber.org/fx"
-	"go.uber.org/fx/fxevent"
 )
 
 func NewApp() *fx.App {
 	return fx.New(
-		// Suppress Fx default logger (MCP uses stdio — must not print to stdout)
-		fx.WithLogger(func() fxevent.Logger { return fxevent.NopLogger }),
 
-		// MCP server config — stdio transport for Claude Desktop / LLM clients
+		// Suppress fx logs — stdio transport uses stdout for MCP protocol
+		fx.NopLogger,
+
+		// MCP server config — Stdio transport for Claude Desktop / CLI tools
 		fx.Supply(mcp.Config{
 			Name:      "filesystem",
 			Version:   "1.0.0",

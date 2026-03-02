@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 	"path/filepath"
 	"time"
@@ -25,6 +26,7 @@ func NewFileSystemTools() *FileSystemTools {
 
 // Register implements mcp.IMCPHandler
 func (f *FileSystemTools) Register(s *mcpserver.MCPServer) {
+	log.Print("Registering FileSystemTools...", f.RootDir)
 	s.AddTool(mcp.NewTool("read_file",
 		mcp.WithDescription("Read file contents"),
 		mcp.WithString("path",
