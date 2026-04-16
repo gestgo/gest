@@ -1,1 +1,62 @@
+
+
+## 0.0.1 (2026-04-16)
+
+
+### Bug Fixes
+
+* change name module ([2f66f0c](https://github.com/gestgo/gest/commit/2f66f0c2a575eb75e9ff3769e1df79b985346585))
+* change name module ([2721a51](https://github.com/gestgo/gest/commit/2721a51f8562542fd73ff874baa85571aefd3825))
+* example i18n ([d667b63](https://github.com/gestgo/gest/commit/d667b63a57c6cb2f57dd8f78e29da955c873ca10))
+* folder struct ([5132b6b](https://github.com/gestgo/gest/commit/5132b6b9d71a03099bd5ad2f8513a636756f46e8))
+* **goCron:**  schedule response ([6b692e6](https://github.com/gestgo/gest/commit/6b692e6f5cdaefcd3170c0a35fcf142fa0318672))
+* **goCron:**  schedule response ([2afb4de](https://github.com/gestgo/gest/commit/2afb4de4c4305af9efced40ecdacbdbb3b08d201))
+* **goCron:** go Cron ([e6fd664](https://github.com/gestgo/gest/commit/e6fd6640060dcc17ff984c508530ce04a572ed19))
+* **goCron:** goCron ([30ff78d](https://github.com/gestgo/gest/commit/30ff78d010752b3f2ec643db60f5a95452c0370d))
+* **goCron:** goCron ([1758d35](https://github.com/gestgo/gest/commit/1758d35308c13da7a2967b4f4c5fec90ae383bee))
+* **goCron:** goCron ([5065732](https://github.com/gestgo/gest/commit/50657320f21dfc0a485f224f11767a4087434ad0))
+* **i18n:** add i18n ([31b553e](https://github.com/gestgo/gest/commit/31b553eca2664d38c04184cef144d5800707ef39))
+* **i18n:** change name i18n ([7d2a8a4](https://github.com/gestgo/gest/commit/7d2a8a43e9ce6ff462a7c1269ed0c8b5cf7476bd))
+* **i18n:** change name i18n ([5f782ae](https://github.com/gestgo/gest/commit/5f782ae6301042a28a0210037f10471d0faf8ef2))
+* **i18nfx:** get i18n ([fd884f5](https://github.com/gestgo/gest/commit/fd884f5103b841039f2559a324c1455509aa0a30))
+* **i18nfx:** i18n params ([afa0385](https://github.com/gestgo/gest/commit/afa03856e980420e5648415d69ade3ba951dc494))
+* **i18nfx:** i18n params ([b32ff3c](https://github.com/gestgo/gest/commit/b32ff3c0b24fe439833dc5f6ca378bf6dc98b478))
+* **i18nfx:** load i18n ([ce24bfe](https://github.com/gestgo/gest/commit/ce24bfec3f58c5be4657a147eef74050d9ab65be))
+* **logfx:** change name logfx ([44eaa85](https://github.com/gestgo/gest/commit/44eaa851a87e47e210425dc42160d6d83eb78647))
+* **querybuilder:** add query builder ([ad194ba](https://github.com/gestgo/gest/commit/ad194bad948b035a366415ce40db629ff11e012a))
+* **redisfx:** add redisfx ([64b9a03](https://github.com/gestgo/gest/commit/64b9a0377c566d74964ab34d0fa58992003575ac))
+* **storage:** change name file-storage to storage ([b770b54](https://github.com/gestgo/gest/commit/b770b540bf2ab0405ee3565cc140f3f806a7c3d4))
+* **validate:** change name validate ([51afb4b](https://github.com/gestgo/gest/commit/51afb4be69bd8c686da1f1b62cfc619b5ddc9a37))
+
+
+### Features
+
+* add pipe ([b025920](https://github.com/gestgo/gest/commit/b025920bd61ea6a567fd3c33010e075cc0ff90ca))
+* **asynq:** add asyncfx job queue ([e7c1980](https://github.com/gestgo/gest/commit/e7c1980900b44fd0de96427be7f2b18d6897cb3e))
+* **asynq:** add asyncfx job queue ([ba1dbcf](https://github.com/gestgo/gest/commit/ba1dbcf13cf9c0f2341937626513e0fe6faa4f49))
+* common excptions ([7eafae3](https://github.com/gestgo/gest/commit/7eafae342ac2899ad83092680103b815ed591d35))
+* **config:** refactor config package ([0a81e5a](https://github.com/gestgo/gest/commit/0a81e5a249d4f0a3c48b2532b03c6dda5db6f24a))
+* echofx ([65c02b4](https://github.com/gestgo/gest/commit/65c02b4ca7f80081da61b0aafed4cc13726a61c6))
+* **echofx:** change name httpPort ([7ced353](https://github.com/gestgo/gest/commit/7ced353e9e15b14c171bbeefb3492cfdbaa202cc))
+* **example:** add mcp-filesystem example ([3985b0c](https://github.com/gestgo/gest/commit/3985b0c9ab0cedf3eec5939cd4c0a6814f688e47))
+* **example:** change example echo-http ([89f2339](https://github.com/gestgo/gest/commit/89f2339c6edaebaafe35a462d8a30a7a9ca8bfff))
+* **grpcfx:** extension grpcfx ([c01554e](https://github.com/gestgo/gest/commit/c01554e7e69e8c75d237666a5fa7e0d6f578c743))
+* i18n example ([1bd0676](https://github.com/gestgo/gest/commit/1bd0676dc4c07d7d9c0d18ce7bf38f4ddb3e805c))
+* i18nfx ([c82ac57](https://github.com/gestgo/gest/commit/c82ac577c2cfe1a8cc8a72d2597228ce7613dc10))
+* **i18n:** i18n example project ([66d6c6d](https://github.com/gestgo/gest/commit/66d6c6dd067af19a0e58b0ed099562831e3b87ee))
+* **i18n:** i18n loader ([ec5436c](https://github.com/gestgo/gest/commit/ec5436ca3d7961b79720824117943dce6a5c24b8))
+* init fw ([12b2939](https://github.com/gestgo/gest/commit/12b2939384b70f76e89187abf246b83707724b78))
+* init project ([3af8e48](https://github.com/gestgo/gest/commit/3af8e4894be5fd87e964f6c023dc1dde67d7a7c9))
+* **lifecycle:** add lifecycle package ([373e63b](https://github.com/gestgo/gest/commit/373e63b39fc31c063e9f9b382dae6886010816ec))
+* **log:** add log package and remove logfx extension ([8dd173e](https://github.com/gestgo/gest/commit/8dd173e5b0643f6c340dacf2c06e44c0be721098))
+* **logging:** add logging for FileSystemTools registration and handle stdin closure in MCPAdapter ([b7d98bf](https://github.com/gestgo/gest/commit/b7d98bfb4a9424b05075d5123a7dc6f28d3bc123))
+* **mcp:** add MCP server adapter implementing lifecycle ([9107159](https://github.com/gestgo/gest/commit/9107159ec74ea39ea70eb294e6c638e1eb15a451))
+* module ([db4f031](https://github.com/gestgo/gest/commit/db4f0317c6bfc420a0feb3f83d62c67828514081))
+* **natfx:** init natsfx ([5f7088d](https://github.com/gestgo/gest/commit/5f7088d1249c732711f1255d10db7fc4b72ad053))
+* package core ([1bc8566](https://github.com/gestgo/gest/commit/1bc85665f5a07929161b8ef93875aa5e7adc3945))
+* **query-buidler:** mongo query builder ([5e759bf](https://github.com/gestgo/gest/commit/5e759bf6de964bfbece9c3fdfa7d16060d824427))
+* **settings:** add initial MCP server configuration for filesystem ([18642ee](https://github.com/gestgo/gest/commit/18642ee5622468937ac0d4731dd70a3efdd9afe3))
+* **submodule:** add docs submodule for project documentation ([6f2ba3b](https://github.com/gestgo/gest/commit/6f2ba3b6b4f82eb71996f9e5f8ba45f82dfd6982))
+* **template:** project template ([7bbfaa9](https://github.com/gestgo/gest/commit/7bbfaa954ef6e5d017dd9c569557c7bff5f99701))
+
 # Changelog
