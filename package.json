@@ -1,0 +1,13 @@
+{
+  "name": "gest",
+  "private": true,
+  "devDependencies": {
+    "@release-it/conventional-changelog": "^8",
+    "release-it": "^17"
+  },
+  "scripts": {
+    "release:lifecycle": "cd package/core/lifecycle && release-it",
+    "release:mcp": "cd package/extension/mcp && release-it",
+    "release:grpc": "cd package/extension/grpc && release-it"
+  }
+}

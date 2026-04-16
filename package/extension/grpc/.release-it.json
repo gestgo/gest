@@ -1,0 +1,24 @@
+{
+  "$schema": "https://unpkg.com/release-it@17/schema/release-it.json",
+  "git": {
+    "tagName": "package/extension/grpc/v${version}",
+    "commitMessage": "chore(grpc): release v${version}",
+    "tagAnnotation": "Release grpc v${version}",
+    "requireCleanWorkingDir": false
+  },
+  "github": {
+    "release": false
+  },
+  "npm": {
+    "publish": false
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "infile": "CHANGELOG.md"
+    }
+  },
+  "hooks": {
+    "before:init": ["go vet ./..."]
+  }
+}

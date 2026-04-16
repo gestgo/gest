@@ -148,3 +148,21 @@ tasks:
       - task: lint:lifecycle
       - task: test:lifecycle
       - npm run release:lifecycle -- {{.CLI_ARGS}}
+
+  release:mcp:
+    desc: "Release package/extension/mcp. Usage: task release:mcp -- patch|minor|major"
+    dir: package/extension/mcp
+    env:
+      GOWORK: "off"
+    cmds:
+      - go vet ./...
+      - npm run release:mcp -- {{.CLI_ARGS}}
+
+  release:grpc:
+    desc: "Release package/extension/grpc. Usage: task release:grpc -- patch|minor|major"
+    dir: package/extension/grpc
+    env:
+      GOWORK: "off"
+    cmds:
+      - go vet ./...
+      - npm run release:grpc -- {{.CLI_ARGS}}

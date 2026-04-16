@@ -1,0 +1,24 @@
+{
+  "$schema": "https://unpkg.com/release-it@17/schema/release-it.json",
+  "git": {
+    "tagName": "package/core/lifecycle/v${version}",
+    "commitMessage": "chore(lifecycle): release v${version}",
+    "tagAnnotation": "Release lifecycle v${version}",
+    "requireCleanWorkingDir": false
+  },
+  "github": {
+    "release": false
+  },
+  "npm": {
+    "publish": false
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "infile": "CHANGELOG.md"
+    }
+  },
+  "hooks": {
+    "before:init": ["go vet ./..."]
+  }
+}
