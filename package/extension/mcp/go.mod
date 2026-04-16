@@ -5,7 +5,7 @@ go 1.23.0
 toolchain go1.24.2
 
 require (
-	github.com/gestgo/gest/package/core/lifecycle v0.0.0-00010101000000-000000000000
+	github.com/gestgo/gest/package/core/lifecycle v0.0.1
 	github.com/mark3labs/mcp-go v0.44.1
 	go.uber.org/fx v1.23.0
 )
@@ -25,5 +25,3 @@ require (
 	golang.org/x/sys v0.29.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
-
-replace github.com/gestgo/gest/package/core/lifecycle => ../../core/lifecycle
