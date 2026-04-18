@@ -8,6 +8,7 @@
   "scripts": {
     "release:lifecycle": "cd package/core/lifecycle && release-it",
     "release:mcp": "cd package/extension/mcp && release-it",
-    "release:grpc": "cd package/extension/grpc && release-it"
+    "release:grpc": "cd package/extension/grpc && release-it",
+    "release:health": "cd package/technique/health && release-it"
   }
 }
